@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recepcion                  automatica en linea  - Renta de Autos La peñita de jaltemba Nayarit</title>
+  <title>Recepcionista Virtual - Renta de Autos</title>
+
+  <!-- Actualización para forzar cache - 08/jun -->
   <style>
     body {
       background: #f4faff;
@@ -12,62 +14,42 @@
       padding: 0;
     }
     .container {
-      max-width: 700px;
+      max-width: 900px;
       margin: 50px auto;
-      background: white;
-      border-radius: 15px;
       padding: 30px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      border: 3px solid #3a7bd5;
+      background: white;
+      border: 3px solid #2e6fd0;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     }
     h1 {
-      text-align: center;
-      color: #0b3d91;
-      font-size: 32px;
-    }
-    p {
-      text-align: center;
-      font-size: 18px;
-      color: #444;
-    }
-    .autos {
-      text-align: center;
-      font-size: 40px;
+      font-size: 2.5em;
+      color: #0b3b8c;
       margin-bottom: 20px;
     }
-    .instruccion {
-      text-align: center;
-      font-size: 18px;
-      margin-top: 20px;
-    }
-  </style>
-
-  <!-- Webchat Script -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
-  <style>
-    #webchat .bpWebchat {
-      position: unset;
-      width: 100%;
-      height: 100%;
-      max-height: 100%;
-      max-width: 100%;
-    }
-    #webchat .bpFab {
-      display: none;
+    .subtitle {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      color: #333;
     }
   </style>
 </head>
-
 <body>
+
   <div class="container">
-    <div class="autos">🚗 🚙 🚐 🚘</div>
+    <div style="font-size: 40px;">🚗 🚙 🚐 🚘</div>
     <h1>Recepcionista Virtual - Renta de Autos</h1>
-    <p>Prueba profesional de chatbot operativo 24/7.<br>
-    Atención personalizada para tu reserva.</p>
-    <div class="instruccion">Interactúa 👉 en la burbuja inferior derecha</div>
+    <div class="subtitle">
+      Prueba profesional de chatbot operativo 24/7.<br>
+      Atención personalizada para tu reserva.
+    </div>
+    <p>Interactúa 👉 en la burbuja inferior derecha</p>
   </div>
 
-  <div id="webchat" style="width: 100%; height: 500px;"></div>
+  <!-- Webchat -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
+  <div id="webchat" style="width: 100%; height: 100%;"></div>
 
   <script>
     window.botpress.on("webchat:ready", () => {
@@ -77,6 +59,7 @@
     window.botpress.init({
       "botId": "14ecb920-37de-470f-8c87-3be6f02b7535",
       "configuration": {
+        "website": {},
         "color": "#5eb1ef",
         "variant": "soft",
         "themeMode": "light",
@@ -87,5 +70,6 @@
       "selector": "#webchat"
     });
   </script>
+
 </body>
 </html>
