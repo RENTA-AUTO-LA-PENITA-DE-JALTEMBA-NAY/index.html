@@ -3,81 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recepcionista Virtual - Renta de Autos</title>
+  <title>Recepcionista Virtual - Renta de Autos La Peñita</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1f3242, #3a5d75);
-      color: #ffffff;
-      text-align: center;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #ffffff, #eaf6ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #0b3d91;
     }
     .container {
-      padding: 40px 20px;
+      text-align: center;
+      padding: 30px;
+      max-width: 900px;
+      border: 4px solid #5eb1ef;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.15);
+      background: #ffffff;
     }
-    .titulo {
-      font-size: 32px;
-      font-weight: bold;
+    h1 {
+      font-size: 2.5rem;
       margin-bottom: 10px;
     }
     .subtitulo {
-      font-size: 20px;
-      margin-bottom: 30px;
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      color: #333;
     }
-    .marco {
-      background: #ffffff;
-      color: #1f3242;
-      border-radius: 15px;
-      padding: 30px;
-      margin: auto;
-      max-width: 800px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    .emoji-autos {
+      font-size: 3rem;
+      margin-bottom: 20px;
     }
-    .emojis {
-      font-size: 40px;
-      margin: 20px 0;
+    .indicador {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: #555;
     }
-    #webchat {
-      margin-top: 40px;
-      width: 100%;
-      max-width: 420px;
-      height: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      border: 2px solid #ffffff;
-      border-radius: 15px;
-      overflow: hidden;
-    }
-    @media(max-width: 600px) {
-      .titulo { font-size: 26px; }
-      .subtitulo { font-size: 16px; }
-      #webchat { height: 500px; }
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #aaa;
     }
   </style>
-  
+
+  <!-- Webchat Botpress -->
   <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
+  <style>
+    #webchat .bpWebchat {
+      position: unset;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      max-width: 100%;
+    }
+    #webchat .bpFab {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="marco">
-      <div class="emojis">🚗🚙🛻🚐🚘</div>
-      <div class="titulo">Bienvenido a la Renta de Autos La Peñita</div>
-      <div class="subtitulo">Sistema de Recepción Virtual Profesional</div>
-      <div class="subtitulo">Solicita disponibilidad, cotiza, agenda o aparta tu vehículo totalmente en línea 🤖✨</div>
-    </div>
 
-    <div id="webchat"></div>
+  <div class="container">
+    <div class="emoji-autos">🚗🚙🛻🚘</div>
+    <h1>Recepcionista Virtual - Renta de Autos</h1>
+    <div class="subtitulo">
+      Prueba profesional de chatbot operativo 24/7.<br>
+      Atención personalizada para tu reserva.
+    </div>
+    <div class="indicador">Interactúa 👉 en la burbuja inferior derecha</div>
   </div>
 
+  <div id="webchat" style="width: 500px; height: 500px;"></div>
+
   <script>
-    window.botpressWebChat.init({
-      botId: "14ecb920-37de-470f-8c87-3be6f02b7535",
-      hostUrl: "https://cdn.botpress.cloud/webchat/v3",
-      messagingUrl: "https://messaging.botpress.cloud",
-      clientId: "14ecb920-37de-470f-8c87-3be6f02b7535",
-      lazySocket: true
+    window.botpress.on("webchat:ready", () => {
+      window.botpress.open();
+    });
+    window.botpress.init({
+      "botId": "14ecb920-37de-470f-8c87-3be6f02b7535",
+      "configuration": {
+        "website": {},
+        "email": {},
+        "phone": {},
+        "termsOfService": {},
+        "privacyPolicy": {},
+        "color": "#5eb1ef",
+        "variant": "soft",
+        "themeMode": "light",
+        "fontFamily": "inter",
+        "radius": 1
+      },
+      "clientId": "fb1680d3-9e60-4a15-b18a-571bba8c82b1",
+      "selector": "#webchat"
     });
   </script>
+
+  <footer>Desarrollado para pruebas internas de Renta Auto La Peñita</footer>
+
 </body>
 </html>
