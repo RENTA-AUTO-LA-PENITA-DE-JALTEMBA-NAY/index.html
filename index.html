@@ -3,55 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recepcionista Virtual - Renta de Autos La Peñita</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <title>Recepcionista Virtual - Renta de Autos</title>
   <style>
     body {
+      background: #f4faff;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #ffffff, #eaf6ff);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      color: #0b3d91;
+      padding: 0;
     }
     .container {
-      text-align: center;
+      max-width: 700px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 15px;
       padding: 30px;
-      max-width: 900px;
-      border: 4px solid #5eb1ef;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.15);
-      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      border: 3px solid #3a7bd5;
     }
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+      text-align: center;
+      color: #0b3d91;
+      font-size: 32px;
     }
-    .subtitulo {
-      font-size: 1.3rem;
-      margin-bottom: 25px;
-      color: #333;
+    p {
+      text-align: center;
+      font-size: 18px;
+      color: #444;
     }
-    .emoji-autos {
-      font-size: 3rem;
+    .autos {
+      text-align: center;
+      font-size: 40px;
       margin-bottom: 20px;
     }
-    .indicador {
+    .instruccion {
+      text-align: center;
+      font-size: 18px;
       margin-top: 20px;
-      font-size: 1.1rem;
-      color: #555;
-    }
-    footer {
-      margin-top: 50px;
-      font-size: 0.9rem;
-      color: #aaa;
     }
   </style>
 
-  <!-- Webchat Botpress -->
+  <!-- Webchat Script -->
   <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
   <style>
     #webchat .bpWebchat {
@@ -68,31 +59,24 @@
 </head>
 
 <body>
-
   <div class="container">
-    <div class="emoji-autos">🚗🚙🛻🚘</div>
+    <div class="autos">🚗 🚙 🚐 🚘</div>
     <h1>Recepcionista Virtual - Renta de Autos</h1>
-    <div class="subtitulo">
-      Prueba profesional de chatbot operativo 24/7.<br>
-      Atención personalizada para tu reserva.
-    </div>
-    <div class="indicador">Interactúa 👉 en la burbuja inferior derecha</div>
+    <p>Prueba profesional de chatbot operativo 24/7.<br>
+    Atención personalizada para tu reserva.</p>
+    <div class="instruccion">Interactúa 👉 en la burbuja inferior derecha</div>
   </div>
 
-  <div id="webchat" style="width: 500px; height: 500px;"></div>
+  <div id="webchat" style="width: 100%; height: 500px;"></div>
 
   <script>
     window.botpress.on("webchat:ready", () => {
       window.botpress.open();
     });
+
     window.botpress.init({
       "botId": "14ecb920-37de-470f-8c87-3be6f02b7535",
       "configuration": {
-        "website": {},
-        "email": {},
-        "phone": {},
-        "termsOfService": {},
-        "privacyPolicy": {},
         "color": "#5eb1ef",
         "variant": "soft",
         "themeMode": "light",
@@ -103,8 +87,5 @@
       "selector": "#webchat"
     });
   </script>
-
-  <footer>Desarrollado para pruebas internas de Renta Auto La Peñita</footer>
-
 </body>
 </html>
