@@ -2,52 +2,73 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Demo de Recepcionista Renta de Autos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recepcionista Virtual - Renta de Autos</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1f3242, #3a5d75);
+      color: #ffffff;
       text-align: center;
-      margin: 40px;
     }
-    h1 {
-      font-size: 28px;
-      color: #1f3242;
+    .container {
+      padding: 40px 20px;
+    }
+    .titulo {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
     .subtitulo {
-      font-size: 18px;
-      margin-top: 15px;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .marco {
+      background: #ffffff;
+      color: #1f3242;
+      border-radius: 15px;
+      padding: 30px;
+      margin: auto;
+      max-width: 800px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .emojis {
+      font-size: 40px;
+      margin: 20px 0;
     }
     #webchat {
-      margin: 40px auto;
-      width: 400px;
-      height: 600px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-    }
-    #webchat .bpWebchat {
-      position: unset;
+      margin-top: 40px;
       width: 100%;
-      height: 100%;
-      max-height: 100%;
-      max-width: 100%;
+      max-width: 420px;
+      height: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 2px solid #ffffff;
+      border-radius: 15px;
+      overflow: hidden;
     }
-    #webchat .bpFab {
-      display: none;
+    @media(max-width: 600px) {
+      .titulo { font-size: 26px; }
+      .subtitulo { font-size: 16px; }
+      #webchat { height: 500px; }
     }
   </style>
-
-  <!-- Webchat engine -->
+  
   <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
 </head>
 
 <body>
+  <div class="container">
+    <div class="marco">
+      <div class="emojis">🚗🚙🛻🚐🚘</div>
+      <div class="titulo">Bienvenido a la Renta de Autos La Peñita</div>
+      <div class="subtitulo">Sistema de Recepción Virtual Profesional</div>
+      <div class="subtitulo">Solicita disponibilidad, cotiza, agenda o aparta tu vehículo totalmente en línea 🤖✨</div>
+    </div>
 
-  <h1>🚗 Demo de Recepcionista Renta de Autos</h1>
-  <div class="subtitulo">Prueba completa profesional del chatbot operativo.</div>
-  <div class="subtitulo">Interactúa directamente en la sección inferior.</div>
-
-  <!-- Webchat Embed -->
-  <div id="webchat"></div>
+    <div id="webchat"></div>
+  </div>
 
   <script>
     window.botpressWebChat.init({
@@ -58,6 +79,5 @@
       lazySocket: true
     });
   </script>
-
 </body>
 </html>
