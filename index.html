@@ -128,7 +128,7 @@
 
   <!-- Burbuja del chatbot -->
   <div id="chatFloat" class="chat-float" style="display: none;">
-    💬 <span class="emoji">🧑‍💬</span>
+    💬 Hola, estoy a tus órdenes... para charlar contigo... INFORMES, RESERVACIONES, REQUISITOS, PRECIOS <span class="emoji">🧑‍💬</span>
   </div>
 
   <!-- Avatar del chatbot -->
@@ -146,8 +146,9 @@
 
     function activarChat() {
       window.botpressWebChat.sendEvent({ type: 'toggle' });
-      document.getElementById('chatFloat').remove();
-      document.getElementById('avatarBot').style.animation = 'none';
+      const bubble = document.getElementById('chatFloat');
+      bubble.style.animation = 'none';
+      bubble.style.display = 'none';
     }
   </script>
 
