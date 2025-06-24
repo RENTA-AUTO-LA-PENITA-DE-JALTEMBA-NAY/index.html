@@ -2,93 +2,61 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recepcionista Virtual - Renta de Autos</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4faff;
+      font-family: Arial, sans-serif;
+      background: #f1f7ff;
       margin: 0;
       padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    .card {
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      border: 3px solid #1e66f5;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       text-align: center;
-      max-width: 600px;
     }
-
-    .card h1 {
-      color: #0d47a1;
+    .contenedor {
+      margin: 10vh auto;
+      max-width: 500px;
+      border: 3px solid #0066ff;
+      border-radius: 16px;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 0 20px #cce3ff;
+    }
+    h1 {
       font-size: 1.8rem;
+      color: #003399;
       margin-bottom: 0.5rem;
     }
-
-    .card p {
+    p {
       font-size: 1rem;
       color: #333;
-      margin: 0.5rem 0;
     }
-
     .emoji {
-      font-size: 1.8rem;
+      font-size: 2rem;
+      margin: 0.5rem;
     }
-
-    .footer {
+    .info {
       margin-top: 1rem;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #555;
     }
   </style>
 </head>
 <body>
-
-  <div class="card">
-    <div class="emoji">🚗 🚙 🚐 🚘</div>
-    <h1><strong>Recepcionista Virtual - Renta de Autos</strong></h1>
+  <div class="contenedor">
+    <div>
+      <span class="emoji">🚗</span>
+      <span class="emoji">🚙</span>
+      <span class="emoji">🚐</span>
+      <span class="emoji">🚓</span>
+    </div>
+    <h1>Recepcionista Virtual -<br> Renta de Autos</h1>
     <p>Prueba profesional de chatbot operativo 24/7.</p>
     <p>Atención personalizada para tu reserva.</p>
-    <div class="footer">
-      Interactúa 👉 en la burbuja inferior derecha.
-    </div>
+    <p class="info">Interactúa 👉 en la burbuja inferior derecha.</p>
   </div>
 
-  <!-- BOTPRESS CHATBOT -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
-  <script defer>
-    window.addEventListener("load", function () {
-      window.botpressWebChat = window.botpressWebChat || {};
-      const interval = setInterval(() => {
-        if (window.botpressWebChat.init) {
-          clearInterval(interval);
-          window.botpressWebChat.init({
-            "botId": "renta-autos-bot-ue2xqiu",  // ⚠️ Verifica que sea tu bot real
-            "hostUrl": "https://cdn.botpress.cloud/webchat/v3",
-            "messagingUrl": "https://messaging.botpress.cloud",
-            "clientId": "renta-autos-bot-ue2xqiu",
-            "botName": "Recepcionista Virtual",
-            "avatarUrl": "https://raw.githubusercontent.com/RENTA-AUTO-LA-PENITA-DE-JALTEMBA-NAY/index.html/refs/heads/main/AVATAR%20CHATBOT.png",
-            "stylesheet": "",
-            "containerWidth": "400px",
-            "layoutWidth": "100%",
-            "enableConversationDeletion": true,
-            "showPoweredBy": false,
-            "enableTranscriptDownload": false
-          });
-
-          window.botpressWebChat.sendEvent({ type: "show" });
-        }
-      }, 100);
-    });
-  </script>
-
+  <!-- Chatbot Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2025/05/29/03/20250529033022-NJ8W71H5.js" defer></script>
 </body>
 </html>
