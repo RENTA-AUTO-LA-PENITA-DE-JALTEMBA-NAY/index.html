@@ -1,62 +1,36 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recepcionista Virtual - Renta de Autos</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f1f7ff;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    .contenedor {
-      margin: 10vh auto;
-      max-width: 500px;
-      border: 3px solid #0066ff;
-      border-radius: 16px;
-      background: #fff;
-      padding: 30px;
-      box-shadow: 0 0 20px #cce3ff;
-    }
-    h1 {
-      font-size: 1.8rem;
-      color: #003399;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1rem;
-      color: #333;
-    }
-    .emoji {
-      font-size: 2rem;
-      margin: 0.5rem;
-    }
-    .info {
-      margin-top: 1rem;
-      font-size: 0.95rem;
-      color: #555;
-    }
-  </style>
-</head>
-<body>
-  <div class="contenedor">
-    <div>
-      <span class="emoji">🚗</span>
-      <span class="emoji">🚙</span>
-      <span class="emoji">🚐</span>
-      <span class="emoji">🚓</span>
-    </div>
-    <h1>Recepcionista Virtual -<br> Renta de Autos</h1>
-    <p>Prueba profesional de chatbot operativo 24/7.</p>
-    <p>Atención personalizada para tu reserva.</p>
-    <p class="info">Interactúa 👉 en la burbuja inferior derecha.</p>
-  </div>
+<!-- Script del Webchat de Botpress -->
+<script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js" defer></script>
+<script src="https://files.bpcontent.cloud/2025/05/29/03/20250529033022-NJ8W71H5.js" defer></script>
 
-  <!-- Chatbot Botpress -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js" defer></script>
-  <script src="https://files.bpcontent.cloud/2025/05/29/03/20250529033022-NJ8W71H5.js" defer></script>
-</body>
-</html>
+<!-- Botón flotante personalizado que aparece después de 32 segundos -->
+<script defer>
+  setTimeout(() => {
+    const boton = document.createElement('div');
+    boton.innerHTML = '💬 Hola, estoy a tus órdenes... para charlar contigo 🤖';
+    boton.style.position = 'fixed';
+    boton.style.bottom = '100px';
+    boton.style.right = '20px';
+    boton.style.backgroundColor = '#007bff';
+    boton.style.color = '#fff';
+    boton.style.padding = '12px 16px';
+    boton.style.borderRadius = '20px';
+    boton.style.boxShadow = '0 4px 6px rgba(0,0,0,0.3)';
+    boton.style.fontFamily = 'Arial, sans-serif';
+    boton.style.cursor = 'pointer';
+    boton.style.zIndex = 9999;
+    boton.style.transition = 'opacity 0.5s ease-in-out';
+    boton.style.opacity = '0';
+
+    document.body.appendChild(boton);
+    setTimeout(() => {
+      boton.style.opacity = '1';
+    }, 100);
+
+    boton.onclick = () => {
+      if (window.botpressWebChat) {
+        window.botpressWebChat.sendEvent({ type: 'show' });
+      }
+      boton.remove(); // oculta el botón al hacer clic
+    };
+  }, 3000); // 3 segundos
+</script>
