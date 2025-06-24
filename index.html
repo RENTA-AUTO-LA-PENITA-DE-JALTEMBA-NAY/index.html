@@ -1,40 +1,96 @@
-<!-- En tu archivo index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recepcionista Virtual - Renta de Autos La Peñita</title>
 
-<!-- En el <head> -->
-<script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js" defer></script>
+  <style>
+    body {
+      background: #f4faff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-<!-- Estilos opcionales para personalización -->
-<style>
-  .bp-widget {
-    --bp-avatar-url: url('https://raw.githubusercontent.com/RENTA-AUTO-LA-PENITA-DE-JALTEMBA-NAY/index.html/refs/heads/main/AVATAR%20CHATBOT.png); /* 🔁 Reemplaza por la URL real de la imagen */
-    --bp-background-color: #ffffff;
-    --bp-bot-avatar-border-radius: 50%;
-  }
-</style>
+    .container {
+      background: #ffffff;
+      border: 3px solid #1677ff;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 700px;
+      width: 90%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
 
-<!-- En el <body> o al final del HTML -->
-<script>
-  window.botpressWebChat.init({
-    botId: "14ecb920-37de-470f-8c87-3be6f02b7535",
-    clientId: "fb1680d3-9e60-4a15-b18a-571bba8c82b1",
-    hostUrl: "https://cdn.botpress.cloud/webchat/v3",
-    messagingUrl: "https://messaging.botpress.cloud",
-    botName: "Recepcionista Virtual",
-    avatarUrl: "https://tudominio.com/AVATAR%20CHATBOT.png", // 🔁 Reemplaza con URL real de la imagen
-    showPoweredBy: false,
-    enableConversationDeletion: false,
-    stylesheet: "",
-    themeName: "prism",
-    theme: "light",
-    layoutWidth: "400px",
-    stylesheetOptions: {},
-    containerWidth: "100%",
-    hideWidget: false,
-    disableAnimations: false
-  });
+    h1 {
+      color: #0b3d91;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
 
-  // Abre automáticamente
-  window.addEventListener("load", function () {
-    window.botpressWebChat.sendEvent({ type: "show" });
-  });
-</script>
+    .subtitle {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .instruccion {
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+
+    .emojis {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="emojis">🚗 🚙 🚐 🚘</div>
+    <h1>Recepcionista Virtual - Renta de Autos</h1>
+    <div class="subtitle">
+      Prueba profesional de chatbot operativo 24/7.<br>
+      Atención personalizada para tu reserva.
+    </div>
+    <div class="instruccion">
+      Interactúa 👉 en la burbuja inferior derecha.
+    </div>
+  </div>
+
+  <!-- Chatbot Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js" defer></script>
+
+  <script>
+    window.botpressWebChat.init({
+      botId: "14ecb920-37de-470f-8c87-3be6f02b7535",
+      clientId: "fb1680d3-9e60-4a15-b18a-571bba8c82b1",
+      hostUrl: "https://cdn.botpress.cloud/webchat/v3",
+      messagingUrl: "https://messaging.botpress.cloud",
+      botName: "Recepcionista Virtual",
+      avatarUrl: "https://raw.githubusercontent.com/RENTA-AUTO-LA-PENITA-DE-JALTEMBA-NAY/index.html/refs/heads/main/AVATAR%20CHATBOT.png",
+      showPoweredBy: false,
+      enableConversationDeletion: false,
+      stylesheet: "",
+      themeName: "prism",
+      theme: "light",
+      layoutWidth: "400px",
+      containerWidth: "100%",
+      hideWidget: false,
+      disableAnimations: false
+    });
+
+    window.addEventListener("load", function () {
+      window.botpressWebChat.sendEvent({ type: "show" });
+    });
+  </script>
+
+</body>
+</html>
