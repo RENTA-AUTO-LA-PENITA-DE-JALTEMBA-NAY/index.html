@@ -85,8 +85,8 @@
 
     .avatar {
       position: fixed;
-      bottom: 25px;
-      right: 35px;
+      bottom: 45px;
+      right: 15px;
       width: 60px;
       height: 60px;
       background: url('https://cdn-icons-png.flaticon.com/512/4712/4712027.png') no-repeat center center / cover;
@@ -128,7 +128,7 @@
   <script>
     setTimeout(() => {
       document.getElementById('chatFloat').style.display = 'block';
-    }, 2500);
+    }, 2000);
 
     function activarChat() {
       window.botpressWebChat.sendEvent({ type: 'toggle' });
