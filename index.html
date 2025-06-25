@@ -28,7 +28,7 @@
     }
 
     .card {
-      margin: -20px auto;
+      margin: 50px auto;
       padding: 40px;
       background: #fff;
       border: 3px solid #0066ff;
@@ -57,8 +57,8 @@
 
     .chat-float {
       position: fixed;
-      bottom: 120px;
-      right: 50px;
+      bottom: 160px; /* Subido para mejor visibilidad en móvil */
+      right: 85px;
       background-color: #007bff;
       color: #fff;
       padding: 12px 16px;
@@ -68,10 +68,6 @@
       z-index: 9999;
       animation: fadeIn 1s ease forwards, popAvatar 1.5s ease-in-out infinite;
    
-
-    .chat-float .emoji {
-      margin-left: 6px;
-    }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -85,7 +81,7 @@
 
     .avatar {
       position: fixed;
-      bottom: -10px;
+      bottom: 90px; /* Subido para coincidir con el chat-float */
       right: 15px;
       width: 60px;
       height: 60px;
@@ -108,9 +104,9 @@
     <div style="font-size: 30px; margin-bottom: 15px;">
       🚗 🚙 🚐 🚎 🚓
     </div>
-    <h2>Recepcionista Virtual<br>Renta de Autos</h2>
-    <p> chatbot operativo 24/7.</p>
-    <p>Atención personalizada para tu reserva.</p>
+    <h2>Recepcionista <br>Renta de Autos</h2>
+    <p> agente de reservas  24/7.</p>
+    <p>Atención personalizada para tu reserva, solo de 8 am a 8 am todos los dias.</p>
     <p>Interactúa 👉 en la burbuja inferior derecha.</p>
   </div>
 
@@ -119,12 +115,14 @@
     💬 Hola, estoy a tus órdenes... para charlar contigo... INFORMES, RESERVACIONES, REQUISITOS, PRECIOS <span class="emoji">🧑‍💬</span>
   </div>
 
+  <!-- Avatar del chatbot -->
+  <div id="avatarBot" class="avatar" onclick="activarChat()"></div>
 
   <!-- Script de chatbot Botpress -->
   <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/05/29/03/20250529033022-NJ8W71H5.js" defer></script>
 
-  <!-- Mostrar burbuja flotante después de 3 segundos -->
+  <!-- Mostrar burbuja flotante después de 2 segundos -->
   <script>
     setTimeout(() => {
       document.getElementById('chatFloat').style.display = 'block';
