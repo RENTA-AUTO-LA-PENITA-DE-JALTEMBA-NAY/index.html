@@ -28,7 +28,7 @@
     }
 
     .card {
-      margin: 30px auto; /* Subido el margen superior */
+      margin: 20px auto;
       padding: 40px;
       background: #fff;
       border: 3px solid #0066ff;
@@ -57,7 +57,7 @@
 
     .chat-float {
       position: fixed;
-      bottom: 140px;
+      bottom: 150px;
       right: 85px;
       background-color: #007bff;
       color: #fff;
@@ -66,30 +66,34 @@
       font-size: 14px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       z-index: 9999;
-      animation: fadeIn 1s ease forwards, popAvatar 1.5s ease-in-out infinite;
-  
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes popAvatar {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease forwards;
     }
 
     .avatar {
       position: fixed;
-      bottom: 180px; /* Subido ligeramente */
-      right: 65px;  /* Movido hacia el centro según marcaste */
+      bottom: 90px;
+      right: 25px;
       width: 60px;
       height: 60px;
       background: url('https://cdn-icons-png.flaticon.com/512/4712/4712027.png') no-repeat center center / cover;
       border-radius: 50%;
       z-index: 10000;
       cursor: pointer;
-      animation: popAvatar 2s ease-in-out infinite;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
   </style>
 </head>
@@ -102,7 +106,7 @@
 
   <div class="card">
     <div style="font-size: 30px; margin-bottom: 15px;">
-      🚗 🚙 🚐 
+      🚗 🚙 🚐 🚎 🚓
     </div>
     <h2>Recepcionista <br>Renta de Autos</h2>
     <p> agente de reservas  24/7.</p>
@@ -112,7 +116,7 @@
 
   <!-- Burbuja del chatbot -->
   <div id="chatFloat" class="chat-float" style="display: none;">
-    💬 Hola, estoy a tus órdenes... para charlar contigo... INFORMES, RESERVACIONES, REQUISITOS, PRECIOS <span class="emoji">🧑‍💬</span>
+    💬 Hola, estoy a tus órdenes... para charlar contigo... INFORMES, RESERVACIONES, REQUISITOS, PRECIOS
   </div>
 
   <!-- Avatar del chatbot -->
@@ -122,11 +126,14 @@
   <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/05/29/03/20250529033022-NJ8W71H5.js" defer></script>
 
-  <!-- Mostrar burbuja flotante después de 3 segundos -->
+  <!-- Mostrar burbuja flotante después de 2 segundos -->
   <script>
     setTimeout(() => {
-      document.getElementById('chatFloat').style.display = 'block';
-    }, 2500);
+      const chatFloat = document.getElementById('chatFloat');
+      chatFloat.style.display = 'block';
+      const audio = new Audio('https://cdn.pixabay.com/download/audio/2022/03/15/audio_c2b5b71fb0.mp3?filename=message-46134.mp3');
+      audio.play();
+    }, 2000);
 
     function activarChat() {
       window.botpressWebChat.sendEvent({ type: 'toggle' });
