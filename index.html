@@ -28,7 +28,7 @@
     }
 
     .card {
-      margin: 50px auto;
+      margin: 30px auto; /* Subido el margen superior */
       padding: 40px;
       background: #fff;
       border: 3px solid #0066ff;
@@ -57,7 +57,7 @@
 
     .chat-float {
       position: fixed;
-      bottom: 160px; /* Subido para mejor visibilidad en móvil */
+      bottom: 140px;
       right: 85px;
       background-color: #007bff;
       color: #fff;
@@ -67,7 +67,7 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       z-index: 9999;
       animation: fadeIn 1s ease forwards, popAvatar 1.5s ease-in-out infinite;
-   
+  
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -81,8 +81,8 @@
 
     .avatar {
       position: fixed;
-      bottom: 90px; /* Subido para coincidir con el chat-float */
-      right: 15px;
+      bottom: 80px; /* Subido ligeramente */
+      right: 25px;  /* Movido hacia el centro según marcaste */
       width: 60px;
       height: 60px;
       background: url('https://cdn-icons-png.flaticon.com/512/4712/4712027.png') no-repeat center center / cover;
@@ -122,11 +122,11 @@
   <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/05/29/03/20250529033022-NJ8W71H5.js" defer></script>
 
-  <!-- Mostrar burbuja flotante después de 2 segundos -->
+  <!-- Mostrar burbuja flotante después de 3 segundos -->
   <script>
     setTimeout(() => {
       document.getElementById('chatFloat').style.display = 'block';
-    }, 2000);
+    }, 2500);
 
     function activarChat() {
       window.botpressWebChat.sendEvent({ type: 'toggle' });
