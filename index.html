@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Renta Auto La Peñita de Jaltemba</title>
   <style>
     body {
@@ -57,8 +57,8 @@
 
     .chat-float {
       position: fixed;
-      bottom: 150px;
-      right: 85px;
+      bottom: 160px;
+      right: 90px;
       background-color: #007bff;
       color: #fff;
       padding: 12px 16px;
@@ -66,34 +66,32 @@
       font-size: 14px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       z-index: 9999;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1s ease forwards;
+      display: none;
+      cursor: pointer;
+      animation: fadeIn 0.8s ease forwards, levitar 2s ease-in-out infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes levitar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
 
     .avatar {
       position: fixed;
-      bottom: 90px;
+      bottom: 100px;
       right: 25px;
-      width: 60px;
-      height: 60px;
+      width: 65px;
+      height: 65px;
       background: url('https://cdn-icons-png.flaticon.com/512/4712/4712027.png') no-repeat center center / cover;
       border-radius: 50%;
       z-index: 10000;
       cursor: pointer;
-      animation: pulse 1.5s ease-in-out infinite;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+      animation: levitar 2s ease-in-out infinite;
     }
   </style>
 </head>
@@ -109,37 +107,35 @@
       🚗 🚙 🚐 🚎 🚓
     </div>
     <h2>Recepcionista <br>Renta de Autos</h2>
-    <p> agente de reservas  24/7.</p>
-    <p>Atención personalizada para tu reserva, solo de 8 am a 8 am todos los dias.</p>
+    <p>Agente de reservas 24/7.</p>
+    <p>Atención personalizada para tu reserva, solo de 8 am a 8 pm todos los días.</p>
     <p>Interactúa 👉 en la burbuja inferior derecha.</p>
   </div>
 
-  <!-- Burbuja del chatbot -->
-  <div id="chatFloat" class="chat-float" style="display: none;">
+  <!-- Burbuja flotante -->
+  <div id="chatFloat" class="chat-float" onclick="activarChat()">
     💬 Hola, estoy a tus órdenes... para charlar contigo... INFORMES, RESERVACIONES, REQUISITOS, PRECIOS
   </div>
 
-  <!-- Avatar del chatbot -->
+  <!-- Avatar flotante -->
   <div id="avatarBot" class="avatar" onclick="activarChat()"></div>
 
-  <!-- Script de chatbot Botpress -->
+  <!-- Botpress Webchat -->
   <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/05/29/03/20250529033022-NJ8W71H5.js" defer></script>
 
-  <!-- Mostrar burbuja flotante después de 2 segundos -->
+  <!-- Sonido y animación del flotante -->
   <script>
     setTimeout(() => {
-      const chatFloat = document.getElementById('chatFloat');
-      chatFloat.style.display = 'block';
-      const audio = new Audio('https://cdn.pixabay.com/download/audio/2022/03/15/audio_c2b5b71fb0.mp3?filename=message-46134.mp3');
-      audio.play();
+      const bubble = document.getElementById('chatFloat');
+      bubble.style.display = 'block';
+      const ping = new Audio('https://notificationsounds.com/storage/sounds/file-sounds-1147-pristine.mp3');
+      ping.play();
     }, 2000);
 
     function activarChat() {
       window.botpressWebChat.sendEvent({ type: 'toggle' });
-      const bubble = document.getElementById('chatFloat');
-      bubble.style.animation = 'none';
-      bubble.style.display = 'none';
+      document.getElementById('chatFloat').style.display = 'none';
     }
   </script>
 
