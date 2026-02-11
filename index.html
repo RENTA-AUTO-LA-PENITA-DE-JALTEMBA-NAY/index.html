@@ -111,7 +111,7 @@
       50%{ transform:scale(1.06); }
     }
 
-    /* Barra/burbuja azul */
+    /* Burbuja azul */
     .chat-float{
       position:relative;
       background-color:#007bff;
@@ -126,21 +126,23 @@
       animation:fadeIn 0.8s ease forwards, pop 1.6s ease-in-out infinite;
     }
 
-    /* Avatar amarillo del centro (clickeable) */
+    /* Avatar amarillo (clickeable) */
     .avatar-center{
-      width:68px;
-      height:68px;
+      width:70px;
+      height:70px;
       cursor:pointer;
       user-select:none;
       border-radius:14px;
       animation: pop 2s ease-in-out infinite;
       box-shadow:0 6px 14px rgba(0,0,0,0.18);
       background:#fff;
+      object-fit: contain;
     }
   </style>
 </head>
 
 <body>
+
   <header>
     RENTA AUTO LA PEÑITA DE JALTEMBA
     <div class="subtitle">Nayarit México</div>
@@ -160,9 +162,9 @@
         💬 Hola, estoy a tus órdenes... INFORMES, RESERVACIONES, REQUISITOS, PRECIOS 🧑‍💬
       </div>
 
-      <!-- CAMBIA EL NOMBRE SI TU IMAGEN SE LLAMA DIFERENTE -->
+      <!-- RUTA ABSOLUTA para que cargue incluso si entras con /index.html/ -->
       <img id="chatAvatarCenter" class="avatar-center"
-           src="avatar-amarillo.png"
+           src="/avatar-amarillo.png"
            alt="Iniciar chat"
            title="Toca para abrir el chat">
     </div>
@@ -179,8 +181,7 @@
   </div>
 
   <div class="footer">
-    <!-- Tu estructura es /index.html/ , por eso el link va RELATIVO -->
-    <a href="aviso-privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a>
+    <a href="/aviso-privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a>
     <span> • </span>
     <span>Al usar el chat, pueden emplearse cookies/almacenamiento local para operar el servicio.</span>
   </div>
@@ -190,59 +191,81 @@
   <script src="https://files.bpcontent.cloud/2025/05/29/03/20250529033022-NJ8W71H5.js" defer></script>
 
   <script>
-    // Mostrar burbuja azul
+    // 0) NORMALIZAR URL: si entran con /index.html/ redirige a /
+    (function normalizarRuta(){
+      const p = location.pathname || '';
+      if (p.endsWith('/index.html/') || p.endsWith('/index.html')) {
+        location.replace('/');
+      }
+    })();
+
+    // 1) Mostrar burbuja azul
     setTimeout(() => {
       const bubble = document.getElementById('chatFloat');
       if (bubble) bubble.style.display = 'block';
     }, 800);
 
-    // Abrir chat botpress (lo más estable: toggle)
-    function abrirChat() {
-      if (window.botpressWebChat && typeof window.botpressWebChat.sendEvent === 'function') {
-        window.botpressWebChat.sendEvent({ type: 'toggle' });
-      }
+    // 2) Abrir chat Botpress (espera a que cargue si aún no está listo)
+    function abrirChatBotpress() {
+      const start = Date.now();
+
+      const intentar = () => {
+        if (window.botpressWebChat && typeof window.botpressWebChat.sendEvent === 'function') {
+          // primero intentar "show" (si existe), si no, usar toggle
+          try { window.botpressWebChat.sendEvent({ type: 'show' }); return true; } catch (e) {}
+          try { window.botpressWebChat.sendEvent({ type: 'toggle' }); return true; } catch (e) {}
+        }
+        return false;
+      };
+
+      if (intentar()) return;
+
+      const t = setInterval(() => {
+        if (intentar() || (Date.now() - start > 9000)) clearInterval(t);
+      }, 250);
     }
 
-    // Click en AVATAR AMARILLO (lo que pediste)
-    document.getElementById('chatAvatarCenter').addEventListener('click', abrirChat);
+    // Click en el AVATAR AMARILLO del centro => abre chat
+    document.getElementById('chatAvatarCenter').addEventListener('click', abrirChatBotpress);
 
-    // Opcional: también abrir al tocar la burbuja azul
-    document.getElementById('chatFloat').addEventListener('click', abrirChat);
+    // (Opcional) Click en burbuja azul => abre chat
+    document.getElementById('chatFloat').addEventListener('click', abrirChatBotpress);
 
-    // Quitar el botón flotante de Botpress (el de abajo a la derecha)
-    // Botpress a veces vive dentro de shadowRoot, por eso lo ocultamos así:
-    (function ocultarBotonFlotanteBotpress() {
+    // 3) Ocultar botón flotante de Botpress (abajo derecha)
+    (function ocultarFloatingBotpress(){
       const start = Date.now();
       const timer = setInterval(() => {
         try {
           // DOM normal
-          const btn = document.querySelector('.bpw-floating-button');
-          if (btn) btn.style.display = 'none';
+          document.querySelectorAll('.bpw-floating-button, .bpw-widget-btn, .bpw-fab')
+            .forEach(el => el.style.display = 'none');
 
-          // Shadow DOM
+          // Shadow DOM (bp-web-widget)
           const w = document.querySelector('bp-web-widget');
           if (w && w.shadowRoot) {
-            const btn2 = w.shadowRoot.querySelector('.bpw-floating-button');
-            if (btn2) btn2.style.display = 'none';
-
-            // Extra: inyectar CSS dentro del shadowRoot
+            // inyectar CSS dentro del shadow
             if (!w.shadowRoot.getElementById('hide-bpw-style')) {
               const st = document.createElement('style');
               st.id = 'hide-bpw-style';
               st.textContent = `
-                .bpw-floating-button{ display:none !important; }
+                .bpw-floating-button,
+                .bpw-widget-btn,
+                .bpw-fab { display:none !important; }
               `;
               w.shadowRoot.appendChild(st);
             }
+            // por si ya existe el botón
+            w.shadowRoot.querySelectorAll('.bpw-floating-button, .bpw-widget-btn, .bpw-fab')
+              .forEach(el => el.style.display = 'none');
           }
 
-          if (Date.now() - start > 8000) clearInterval(timer);
+          if (Date.now() - start > 9000) clearInterval(timer);
         } catch (e) {
-          if (Date.now() - start > 8000) clearInterval(timer);
+          if (Date.now() - start > 9000) clearInterval(timer);
         }
-      }, 350);
+      }, 300);
     })();
   </script>
+
 </body>
 </html>
-
