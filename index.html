@@ -1,142 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Renta Auto La Peñita de Jaltemba</title>
 
   <style>
-    body{
-      margin:0;
-      padding:0;
-      background-color:#eef5ff;
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #eef5ff;
       font-family: Arial, sans-serif;
-      text-align:center;
+      text-align: center;
     }
 
-    header{
-      padding:20px;
-      font-size:28px;
-      color:#003366;
-      font-weight:bold;
-      background-color:#fff;
-      line-height:1.2;
+    header {
+      padding: 20px;
+      font-size: 28px;
+      color: #003366;
+      font-weight: bold;
+      background-color: #fff;
+      line-height: 1.2;
     }
 
-    .subtitle{
-      margin-top:6px;
-      font-size:18px;
-      color:#555;
-      font-weight:normal;
+    .subtitle {
+      margin-top: 6px;
+      font-size: 18px;
+      color: #555;
+      font-weight: normal;
     }
 
-    .card{
-      margin:50px auto 20px auto;
-      padding:40px;
-      background:#fff;
-      border:3px solid #0066ff;
-      border-radius:12px;
-      width:90%;
-      max-width:600px;
-      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    .card {
+      margin: 50px auto 20px auto;
+      padding: 40px;
+      background: #fff;
+      border: 3px solid #0066ff;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    .card h2{
-      font-size:24px;
-      color:#003399;
-      margin:0 0 10px 0;
+    .card h2 {
+      font-size: 24px;
+      color: #003399;
+      margin: 0 0 10px 0;
     }
 
-    .card p{
-      font-size:16px;
-      color:#333;
-      margin:6px 0;
+    .card p {
+      font-size: 16px;
+      color: #333;
+      margin: 6px 0;
     }
 
-    .cta{
-      max-width:600px;
-      margin:0 auto 26px auto;
-      padding:0 16px;
-      font-size:14px;
-      color:#333;
+    .cta {
+      max-width: 600px;
+      margin: 0 auto 26px auto;
+      padding: 0 16px;
+      font-size: 14px;
+      color: #333;
     }
 
-    .cta a{
-      display:inline-block;
-      margin-top:10px;
-      padding:12px 16px;
-      border-radius:12px;
-      border:2px solid #0066ff;
-      text-decoration:none;
-      font-weight:bold;
-      color:#003399;
-      background:#fff;
+    .cta a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 2px solid #0066ff;
+      text-decoration: none;
+      font-weight: bold;
+      color: #003399;
+      background: #fff;
     }
 
-    .cta a:hover{ background:#f2f6ff; }
+    .cta a:hover { background: #f2f6ff; }
 
-    .footer{
-      max-width:600px;
-      margin:0 auto 30px auto;
-      font-size:14px;
-      color:#444;
-      padding:0 16px;
+    .footer {
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      font-size: 14px;
+      color: #444;
+      padding: 0 16px;
     }
 
-    .footer a{
-      color:#003399;
-      text-decoration:none;
-      font-weight:bold;
+    .footer a {
+      color: #003399;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    .footer a:hover{ text-decoration:underline; }
+    .footer a:hover { text-decoration: underline; }
 
-    /* Centro dentro del recuadro blanco */
-    .chat-center{
-      margin-top:18px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:14px;
+    .chat-center {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
     }
 
-    @keyframes fadeIn{
-      from{ opacity:0; transform:translateY(20px); }
-      to{ opacity:1; transform:translateY(0); }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes pop{
-      0%,100%{ transform:scale(1); }
-      50%{ transform:scale(1.06); }
+    @keyframes pop {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
     }
 
-    /* Burbuja azul */
-    .chat-float{
-      position:relative;
-      background-color:#007bff;
-      color:#fff;
-      padding:12px 18px;
-      border-radius:25px;
-      font-size:14px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.2);
-      cursor:pointer;
-      user-select:none;
-      max-width:520px;
-      animation:fadeIn 0.8s ease forwards, pop 1.6s ease-in-out infinite;
+    .chat-float {
+      position: relative;
+      background-color: #007bff;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 25px;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      user-select: none;
+      max-width: 520px;
+      animation: fadeIn 0.8s ease forwards, pop 1.6s ease-in-out infinite;
     }
 
-    /* Avatar amarillo (clickeable) */
-    .avatar-center{
-      width:70px;
-      height:70px;
-      cursor:pointer;
-      user-select:none;
-      border-radius:14px;
+    /* ✅ BOT AMARILLO MÁS GRANDE */
+    .avatar-center {
+      width: 120px;       /* <-- antes 70 */
+      height: 120px;      /* <-- antes 70 */
+      cursor: pointer;
+      user-select: none;
+      border-radius: 22px;
       animation: pop 2s ease-in-out infinite;
-      box-shadow:0 6px 14px rgba(0,0,0,0.18);
-      background:#fff;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+      background: #fff;
       object-fit: contain;
+      display: block;
     }
   </style>
 </head>
@@ -162,7 +161,7 @@
         💬 Hola, estoy a tus órdenes... INFORMES, RESERVACIONES, REQUISITOS, PRECIOS 🧑‍💬
       </div>
 
-      <!-- IMPORTANTE: ruta RELATIVA porque tu sitio vive en /index.html/ -->
+      <!-- ✅ Ruta RELATIVA (tu sitio vive en /index.html/) -->
       <img id="chatAvatarCenter" class="avatar-center"
            src="avatar-amarillo.png"
            alt="Iniciar chat"
@@ -181,7 +180,6 @@
   </div>
 
   <div class="footer">
-    <!-- IMPORTANTE: ruta RELATIVA porque tu sitio vive en /index.html/ -->
     <a href="aviso-privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a>
     <span> • </span>
     <span>Al usar el chat, pueden emplearse cookies/almacenamiento local para operar el servicio.</span>
@@ -198,62 +196,112 @@
       if (bubble) bubble.style.display = 'block';
     }, 800);
 
-    // Abrir chat Botpress (espera a que cargue si aún no está listo)
-    function abrirChatBotpress() {
-      const start = Date.now();
-
-      const intentar = () => {
-        if (window.botpressWebChat && typeof window.botpressWebChat.sendEvent === 'function') {
-          try { window.botpressWebChat.sendEvent({ type: 'show' }); return true; } catch (e) {}
-          try { window.botpressWebChat.sendEvent({ type: 'toggle' }); return true; } catch (e) {}
-        }
-        return false;
-      };
-
-      if (intentar()) return;
-
-      const t = setInterval(() => {
-        if (intentar() || (Date.now() - start > 9000)) clearInterval(t);
-      }, 250);
+    // Helpers para soportar ambos nombres (Botpress cambia mayúsculas según versión)
+    function bpObj() {
+      return window.botpressWebChat || window.botpressWebchat || null;
     }
 
-    // Click en avatar amarillo (CENTRO) => abre chat
+    function bpSend(evt) {
+      const w = bpObj();
+      if (w && typeof w.sendEvent === 'function') {
+        try { w.sendEvent(evt); return true; } catch(e) {}
+      }
+      return false;
+    }
+
+    // ✅ Abre el chat
+    function abrirChatBotpress() {
+      // 1) Intentar por evento (preferido)
+      if (bpSend({ type: 'show' })) return;
+      if (bpSend({ type: 'toggle' })) return;
+
+      // 2) Fallback: click programático al launcher (si existe)
+      const btn = encontrarLauncherBotpress();
+      if (btn) btn.click();
+    }
+
+    // ✅ Quieres que el chat se abra tocando el AMARILLO (centro)
     document.getElementById('chatAvatarCenter').addEventListener('click', abrirChatBotpress);
 
-    // Opcional: click en burbuja azul => abre chat
+    // (Opcional) también al tocar la burbuja azul
     document.getElementById('chatFloat').addEventListener('click', abrirChatBotpress);
 
-    // Ocultar el botón flotante de Botpress (abajo derecha)
-    (function ocultarFloatingBotpress(){
-      const start = Date.now();
-      const timer = setInterval(() => {
-        try {
-          // DOM normal
-          document.querySelectorAll('.bpw-floating-button, .bpw-widget-btn, .bpw-fab')
-            .forEach(el => el.style.display = 'none');
+    // ------------------------------------------------------------
+    // 🔥 HIDE / DISABLE launcher (botón abajo-derecha) y mover función al amarillo
+    // ------------------------------------------------------------
 
-          // Shadow DOM (bp-web-widget)
-          const w = document.querySelector('bp-web-widget');
-          if (w && w.shadowRoot) {
-            if (!w.shadowRoot.getElementById('hide-bpw-style')) {
-              const st = document.createElement('style');
-              st.id = 'hide-bpw-style';
-              st.textContent = `
-                .bpw-floating-button,
-                .bpw-widget-btn,
-                .bpw-fab { display:none !important; }
-              `;
-              w.shadowRoot.appendChild(st);
-            }
-            w.shadowRoot.querySelectorAll('.bpw-floating-button, .bpw-widget-btn, .bpw-fab')
-              .forEach(el => el.style.display = 'none');
-          }
+    function encontrarLauncherBotpress() {
+      // Buscar en DOM normal
+      const selectors = [
+        '.bpw-floating-button',
+        '.bpw-widget-btn',
+        '.bpw-fab',
+        '#bpw-widget-btn',
+        '[data-testid*="floating"]',
+        '[class*="floating"]',
+        '[class*="launcher"]'
+      ];
+      for (const s of selectors) {
+        const el = document.querySelector(s);
+        if (el) return el;
+      }
 
-          if (Date.now() - start > 9000) clearInterval(timer);
-        } catch (e) {
-          if (Date.now() - start > 9000) clearInterval(timer);
+      // Buscar dentro del shadowRoot si existe
+      const w = document.querySelector('bp-web-widget');
+      if (w && w.shadowRoot) {
+        for (const s of selectors) {
+          const el = w.shadowRoot.querySelector(s);
+          if (el) return el;
         }
-      }, 300);
+        // Último recurso: primer botón que parezca launcher (muchas veces es un button circular)
+        const maybe = w.shadowRoot.querySelector('button');
+        if (maybe) return maybe;
+      }
+
+      return null;
+    }
+
+    function ocultarLauncherBotpress() {
+      // 1) Intentar por configure (si existe)
+      const w = bpObj();
+      if (w && typeof w.configure === 'function') {
+        try { w.configure({ hideWidget: true }); } catch(e) {}
+      }
+
+      // 2) Ocultar por CSS/JS (sin romper el chat)
+      const btn = encontrarLauncherBotpress();
+      if (btn) {
+        btn.style.opacity = '0';
+        btn.style.pointerEvents = 'none';
+        btn.style.transform = 'scale(0.01)';
+      }
+
+      // 3) Intentar inyectar CSS dentro del shadow
+      const ww = document.querySelector('bp-web-widget');
+      if (ww && ww.shadowRoot && !ww.shadowRoot.getElementById('bp-hide-launcher-style')) {
+        const st = document.createElement('style');
+        st.id = 'bp-hide-launcher-style';
+        st.textContent = `
+          .bpw-floating-button,
+          .bpw-widget-btn,
+          .bpw-fab,
+          #bpw-widget-btn { 
+            opacity: 0 !important;
+            pointer-events: none !important;
+            transform: scale(0.01) !important;
+          }
+        `;
+        ww.shadowRoot.appendChild(st);
+      }
+    }
+
+    // Ejecutar varias veces porque Botpress inyecta tarde
+    (function loopHide() {
+      const start = Date.now();
+      const t = setInterval(() => {
+        ocultarLauncherBotpress();
+        if (Date.now() - start > 12000) clearInterval(t);
+      }, 350);
     })();
   </script>
 
