@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Renta Auto La Peñita de Jaltemba</title>
+
   <style>
     body {
       margin: 0;
@@ -94,49 +95,62 @@
       text-decoration: underline;
     }
 
-    /* Burbuja flotante */
+    /* Contenedor centrado dentro de la card */
+    .chat-center {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes popAvatar {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.08); }
+    }
+
+    /* Burbuja (centrada, NO fixed) */
     .chat-float {
-      position: fixed;
-      bottom: 95px;
-      right: 85px;
+      position: relative;
+      right: auto;
+      bottom: auto;
       background-color: #007bff;
       color: #fff;
       padding: 12px 16px;
       border-radius: 25px;
       font-size: 14px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      z-index: 9999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       cursor: pointer;
-      animation: fadeIn 1s ease forwards, popAvatar 1.5s ease-in-out infinite;
       user-select: none;
-      max-width: 270px;
+      max-width: 520px;
+      animation: fadeIn 1s ease forwards, popAvatar 1.5s ease-in-out infinite;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes popAvatar {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.08); }
-    }
-
+    /* Bot / avatar (centrado, NO fixed) */
     .avatar {
-      position: fixed;
-      bottom: 25px;
-      right: 15px;
+      position: relative;
+      right: auto;
+      bottom: auto;
       width: 60px;
       height: 60px;
       background: url('https://cdn-icons-png.flaticon.com/512/4712/4712027.png') no-repeat center center / cover;
       border-radius: 50%;
-      z-index: 10000;
       cursor: pointer;
       animation: popAvatar 2s ease-in-out infinite;
       box-shadow: 0 4px 10px rgba(0,0,0,0.25);
     }
+
+    /* Opcional: ocultar el botón flotante nativo de Botpress si aparece */
+    .bpw-floating-button { display: none !important; }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -148,34 +162,38 @@
     <div style="font-size: 30px; margin-bottom: 15px;">
       🚗 🚙 🚐
     </div>
+
     <h2>Recepcionista<br>Renta de Autos</h2>
     <p>Atención 24/7.</p>
     <p>Atención personalizada para tu reserva.</p>
     <p>Interactúa 👉 conmigo (abajo a la derecha).</p>
     <p>Soy tu agente de informes y reservaciones.</p>
+
+    <!-- Centro del recuadro blanco: burbuja + bot -->
+    <div class="chat-center">
+      <div id="chatFloat" class="chat-float" style="display:none;">
+        💬 Hola, estoy a tus órdenes... INFORMES, RESERVACIONES, REQUISITOS, PRECIOS 🧑‍💬
+      </div>
+      <div id="chatAvatar" class="avatar" title="Abrir chat"></div>
+    </div>
   </div>
 
+  <!-- CTA: cuando el cliente ya decidió contratar -->
   <div class="cta">
     <div><strong>¿Ya decidiste contratar?</strong> Te atendemos en WhatsApp:</div>
-    <a href="https://wa.me/523271023282?text=Hola%2C%20vengo%20del%20chatbot%20de%20Renta%20Auto%20La%20Pe%C3%B1ita.%20Ya%20deseo%20contratar/reservar.%20%C2%BFMe%20apoyas%3F" target="_blank" rel="noopener">✅ Contratar / Reservar por WhatsApp</a>
+    <a href="https://wa.me/523271023282?text=Hola%2C%20vengo%20del%20chatbot%20de%20Renta%20Auto%20La%20Pe%C3%B1ita.%20Ya%20deseo%20contratar%2Freservar.%20%C2%BFMe%20apoyas%3F"
+       target="_blank" rel="noopener">✅ Contratar / Reservar por WhatsApp</a>
+
     <div style="margin-top:8px; color:#555; font-size:13px;">
       (Primero te atiende el chatbot. Cuando ya estés listo para contratar, aquí pasas con atención humana.)
     </div>
   </div>
 
   <div class="footer">
-    <a href="aviso-privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a>
+    <a href="/aviso-privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a>
     <span> • </span>
     <span>Al usar el chat, pueden emplearse cookies/almacenamiento local para operar el servicio.</span>
   </div>
-
-  <!-- Burbuja del chatbot -->
-  <div id="chatFloat" class="chat-float" style="display:none;">
-    💬 Hola, estoy a tus órdenes... INFORMES, RESERVACIONES, REQUISITOS, PRECIOS 🧑‍💬
-  </div>
-
-  <!-- Avatar clickeable -->
-  <div id="chatAvatar" class="avatar" title="Abrir chat"></div>
 
   <!-- Botpress -->
   <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js" defer></script>
@@ -206,3 +224,4 @@
 
 </body>
 </html>
+
