@@ -1,226 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Renta Auto La Peñita de Jaltemba</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aviso de Privacidad – Renta Auto La Peñita de Jaltemba</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: #eef5ff;
+      background: #eef5ff;
       font-family: Arial, sans-serif;
+      color: #1b1b1b;
+      line-height: 1.55;
+    }
+    header {
+      background: #fff;
+      padding: 18px 14px;
+      border-bottom: 2px solid #0066ff;
       text-align: center;
     }
-
-    header {
-      padding: 20px;
-      font-size: 28px;
+    header h1 {
+      margin: 0;
+      font-size: 22px;
       color: #003366;
-      font-weight: bold;
-      background-color: #fff;
-      line-height: 1.2;
     }
-
-    .subtitle {
-      margin-top: 6px;
-      font-size: 18px;
-      color: #555;
-      font-weight: normal;
+    .wrap {
+      max-width: 920px;
+      margin: 18px auto;
+      padding: 0 14px 28px 14px;
     }
-
     .card {
-      margin: 50px auto 20px auto;
-      padding: 40px;
       background: #fff;
-      border: 3px solid #0066ff;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 600px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .card h2 {
-      font-size: 24px;
-      color: #003399;
-      margin: 0 0 10px 0;
-    }
-
-    .card p {
-      font-size: 16px;
-      color: #333;
-      margin: 6px 0;
-    }
-
-    .cta {
-      max-width: 600px;
-      margin: 0 auto 26px auto;
-      padding: 0 16px;
-      font-size: 14px;
-      color: #333;
-    }
-
-    .cta a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 12px 16px;
-      border-radius: 12px;
       border: 2px solid #0066ff;
-      text-decoration: none;
-      font-weight: bold;
-      color: #003399;
-      background: #fff;
+      border-radius: 12px;
+      padding: 18px 18px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
     }
-
-    .cta a:hover {
-      background: #f2f6ff;
-    }
-
-    .footer {
-      max-width: 600px;
-      margin: 0 auto 30px auto;
-      font-size: 14px;
-      color: #444;
-      padding: 0 16px;
-    }
-
-    .footer a {
-      color: #003399;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* Contenedor centrado dentro de la card */
-    .chat-center {
+    h2 {
       margin-top: 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
+      color: #003399;
+      font-size: 18px;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+    ul {
+      margin-top: 8px;
     }
-
-    @keyframes popAvatar {
-      0%, 100% { transform: scale(1); }
-      50%      { transform: scale(1.08); }
+    .muted {
+      color: #444;
+      font-size: 13px;
     }
-
-    /* Burbuja (centrada, NO fixed) */
-    .chat-float {
-      position: relative;
-      right: auto;
-      bottom: auto;
-      background-color: #007bff;
-      color: #fff;
-      padding: 12px 16px;
-      border-radius: 25px;
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f2f6ff;
+      border: 1px solid #cfe0ff;
+      font-size: 13px;
+      margin: 6px 6px 0 0;
+    }
+    a { color: #003399; }
+    .note {
+      background: #f7fbff;
+      border: 1px dashed #9cc0ff;
+      padding: 12px 12px;
+      border-radius: 12px;
+      margin-top: 10px;
       font-size: 14px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      cursor: pointer;
-      user-select: none;
-      max-width: 520px;
-      animation: fadeIn 1s ease forwards, popAvatar 1.5s ease-in-out infinite;
+      color: #2a2a2a;
     }
-
-    /* Bot / avatar (centrado, NO fixed) */
-    .avatar {
-      position: relative;
-      right: auto;
-      bottom: auto;
-      width: 60px;
-      height: 60px;
-      background: url('https://cdn-icons-png.flaticon.com/512/4712/4712027.png') no-repeat center center / cover;
-      border-radius: 50%;
-      cursor: pointer;
-      animation: popAvatar 2s ease-in-out infinite;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-    }
-
-    /* Opcional: ocultar el botón flotante nativo de Botpress si aparece */
-    .bpw-floating-button { display: none !important; }
   </style>
 </head>
 
 <body>
-
   <header>
-    RENTA AUTO LA PEÑITA DE JALTEMBA
-    <div class="subtitle">Nayarit México</div>
+    <h1>Aviso de Privacidad Integral</h1>
+    <div class="muted">Renta Auto La Peñita de Jaltemba • Última actualización: 10/02/2026</div>
   </header>
 
-  <div class="card">
-    <div style="font-size: 30px; margin-bottom: 15px;">
-      🚗 🚙 🚐
-    </div>
+  <div class="wrap">
+    <div class="card">
 
-    <h2>Recepcionista<br>Renta de Autos</h2>
-    <p>Atención 24/7.</p>
-    <p>Atención personalizada para tu reserva.</p>
-    <p>Interactúa 👉 conmigo (abajo a la derecha).</p>
-    <p>Soy tu agente de informes y reservaciones.</p>
+      <p><strong>Responsable del tratamiento:</strong> Manuel Silva (en adelante, “EL RESPONSABLE”).</p>
 
-    <!-- Centro del recuadro blanco: burbuja + bot -->
-    <div class="chat-center">
-      <div id="chatFloat" class="chat-float" style="display:none;">
-        💬 Hola, estoy a tus órdenes... INFORMES, RESERVACIONES, REQUISITOS, PRECIOS 🧑‍💬
+      <div class="note">
+        <strong>Canales de atención:</strong><br>
+        • Chatbot informativo (WhatsApp): <strong>3221490187</strong><br>
+        • Atención humana (reservación/contratación): <strong>3271023282</strong>
       </div>
-      <div id="chatAvatar" class="avatar" title="Abrir chat"></div>
+
+      <p><strong>Contacto para privacidad (ARCO):</strong></p>
+      <div class="pill">WhatsApp: <strong>3271023282</strong></div>
+      <div class="pill">Correo: <strong>[TU CORREO]</strong></div>
+      <div class="pill">Domicilio: <strong>[DOMICILIO DEL RESPONSABLE]</strong></div>
+
+      <h2>1) Datos personales que recabamos</h2>
+      <p>Para la prestación del servicio de arrendamiento de vehículo, podemos recabar:</p>
+      <ul>
+        <li><strong>Identificación y contacto:</strong> nombre, teléfono, domicilio, firma, imagen de identificaciones (INE/pasaporte/licencia), comprobante de domicilio.</li>
+        <li><strong>Datos del servicio:</strong> fechas/horarios de renta, destino declarado, depósito, pagos, incidencias, inventario de entrega/devolución.</li>
+        <li><strong>Evidencias:</strong> fotos y/o video del inventario del vehículo (interior/exterior) al entregar/devolver, y comunicaciones (WhatsApp/SMS) relacionadas con el contrato.</li>
+        <li><strong>Datos patrimoniales/financieros (si aplica):</strong> comprobantes de pago, transferencias o depósitos vinculados a la renta.</li>
+      </ul>
+
+      <h2>2) Finalidades del tratamiento</h2>
+      <p><strong>Finalidades primarias (necesarias):</strong></p>
+      <ul>
+        <li>Verificar identidad y celebrar/administrar el contrato de arrendamiento.</li>
+        <li>Gestionar pagos, depósito de garantía, prórrogas y cargos derivados del servicio (combustible, limpieza, daños, multas, grúa, etc.).</li>
+        <li>Atender incidentes, siniestros y trámites con aseguradora, asistencia vial y/o autoridades competentes.</li>
+        <li>Seguridad y prevención de fraude, incluyendo validación documental y resguardo de evidencia de inventario.</li>
+        <li>Cumplimiento de obligaciones legales aplicables.</li>
+      </ul>
+
+      <p><strong>Finalidades secundarias (no necesarias):</strong></p>
+      <ul>
+        <li>Envío de promociones, recordatorios o información comercial sobre el servicio de renta.</li>
+      </ul>
+      <p class="muted">Si no desea que sus datos se usen para finalidades secundarias, puede solicitarlo por los medios de contacto indicados.</p>
+
+      <h2>3) Transferencias y encargados</h2>
+      <p>Podremos compartir datos personales, únicamente cuando sea necesario, con:</p>
+      <ul>
+        <li><strong>Aseguradora y/o asistencia vial</strong> (para atención de siniestros o fallas).</li>
+        <li><strong>Autoridades competentes</strong> (cuando exista requerimiento legal, infracciones, investigación o denuncia).</li>
+        <li><strong>Proveedores</strong> (talleres, grúas, corralones) para atención de incidentes o reparación, cuando proceda.</li>
+        <li><strong>Plataformas de comunicación</strong> utilizadas por el titular para contactar y operar el servicio (por ejemplo, WhatsApp/Meta) y, en su caso, proveedores de chat web (por ejemplo, Botpress Cloud), únicamente para la operación técnica del canal.</li>
+      </ul>
+
+      <h2>4) Consentimiento</h2>
+      <p>El tratamiento de datos personales se realizará conforme a la normatividad aplicable. En el caso de <strong>datos patrimoniales/financieros</strong> (p. ej., comprobantes de pago), el consentimiento puede requerirse de forma <strong>expresa</strong>. Consulte el contrato impreso para la manifestación correspondiente.</p>
+
+      <h2>5) Derechos ARCO y revocación</h2>
+      <p>Usted puede ejercer sus derechos de <strong>Acceso, Rectificación, Cancelación u Oposición (ARCO)</strong>, así como revocar su consentimiento, mediante solicitud enviada al contacto de privacidad indicado, incluyendo:</p>
+      <ul>
+        <li>Nombre del titular y medio para comunicar respuesta</li>
+        <li>Documentos que acrediten identidad (copia de identificación) o representación legal</li>
+        <li>Descripción clara de los datos y el derecho que desea ejercer</li>
+      </ul>
+
+      <h2>6) Cookies y tecnologías</h2>
+      <p>Este sitio puede utilizar cookies/almacenamiento local y tecnologías similares para operar funcionalidades (por ejemplo, el módulo de chat). Puede deshabilitarlas desde su navegador; algunas funciones podrían verse limitadas.</p>
+
+      <h2>7) Cambios al aviso</h2>
+      <p>Este aviso puede actualizarse. Cualquier cambio se publicará en esta misma página.</p>
+
+      <p class="muted">Nota: Ajusta los campos [TU CORREO] y [DOMICILIO DEL RESPONSABLE] para completar el aviso.</p>
+
+      <p><a href="index.html">← Volver al inicio</a></p>
     </div>
   </div>
-
-  <!-- CTA: cuando el cliente ya decidió contratar -->
-  <div class="cta">
-    <div><strong>¿Ya decidiste contratar?</strong> Te atendemos en WhatsApp:</div>
-    <a href="https://wa.me/523271023282?text=Hola%2C%20vengo%20del%20chatbot%20de%20Renta%20Auto%20La%20Pe%C3%B1ita.%20Ya%20deseo%20contratar%2Freservar.%20%C2%BFMe%20apoyas%3F"
-       target="_blank" rel="noopener">✅ Contratar / Reservar por WhatsApp</a>
-
-    <div style="margin-top:8px; color:#555; font-size:13px;">
-      (Primero te atiende el chatbot. Cuando ya estés listo para contratar, aquí pasas con atención humana.)
-    </div>
-  </div>
-
-  <div class="footer">
-    <a href="/aviso-privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a>
-    <span> • </span>
-    <span>Al usar el chat, pueden emplearse cookies/almacenamiento local para operar el servicio.</span>
-  </div>
-
-  <!-- Botpress -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js" defer></script>
-  <script src="https://files.bpcontent.cloud/2025/05/29/03/20250529033022-NJ8W71H5.js" defer></script>
-
-  <script>
-    // Mostrar burbuja después de 1 segundo
-    setTimeout(() => {
-      const bubble = document.getElementById('chatFloat');
-      if (bubble) bubble.style.display = 'block';
-    }, 1000);
-
-    function activarChat() {
-      if (window.botpressWebChat && typeof window.botpressWebChat.sendEvent === 'function') {
-        window.botpressWebChat.sendEvent({ type: 'toggle' });
-      }
-      const bubble = document.getElementById('chatFloat');
-      if (bubble) {
-        bubble.style.animation = 'none';
-        bubble.style.display = 'none';
-      }
-    }
-
-    // Click en avatar o burbuja abre el chat
-    document.getElementById('chatAvatar').addEventListener('click', activarChat);
-    document.getElementById('chatFloat').addEventListener('click', activarChat);
-  </script>
-
 </body>
 </html>
