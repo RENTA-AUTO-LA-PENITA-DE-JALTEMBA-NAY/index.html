@@ -162,9 +162,9 @@
         💬 Hola, estoy a tus órdenes... INFORMES, RESERVACIONES, REQUISITOS, PRECIOS 🧑‍💬
       </div>
 
-      <!-- RUTA ABSOLUTA para que cargue incluso si entras con /index.html/ -->
+      <!-- IMPORTANTE: ruta RELATIVA porque tu sitio vive en /index.html/ -->
       <img id="chatAvatarCenter" class="avatar-center"
-           src="/avatar-amarillo.png"
+           src="avatar-amarillo.png"
            alt="Iniciar chat"
            title="Toca para abrir el chat">
     </div>
@@ -181,7 +181,8 @@
   </div>
 
   <div class="footer">
-    <a href="/aviso-privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a>
+    <!-- IMPORTANTE: ruta RELATIVA porque tu sitio vive en /index.html/ -->
+    <a href="aviso-privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a>
     <span> • </span>
     <span>Al usar el chat, pueden emplearse cookies/almacenamiento local para operar el servicio.</span>
   </div>
@@ -191,21 +192,18 @@
   <script src="https://files.bpcontent.cloud/2025/05/29/03/20250529033022-NJ8W71H5.js" defer></script>
 
   <script>
-   
-
-    // 1) Mostrar burbuja azul
+    // Mostrar burbuja azul
     setTimeout(() => {
       const bubble = document.getElementById('chatFloat');
       if (bubble) bubble.style.display = 'block';
     }, 800);
 
-    // 2) Abrir chat Botpress (espera a que cargue si aún no está listo)
+    // Abrir chat Botpress (espera a que cargue si aún no está listo)
     function abrirChatBotpress() {
       const start = Date.now();
 
       const intentar = () => {
         if (window.botpressWebChat && typeof window.botpressWebChat.sendEvent === 'function') {
-          // primero intentar "show" (si existe), si no, usar toggle
           try { window.botpressWebChat.sendEvent({ type: 'show' }); return true; } catch (e) {}
           try { window.botpressWebChat.sendEvent({ type: 'toggle' }); return true; } catch (e) {}
         }
@@ -219,13 +217,13 @@
       }, 250);
     }
 
-    // Click en el AVATAR AMARILLO del centro => abre chat
+    // Click en avatar amarillo (CENTRO) => abre chat
     document.getElementById('chatAvatarCenter').addEventListener('click', abrirChatBotpress);
 
-    // (Opcional) Click en burbuja azul => abre chat
+    // Opcional: click en burbuja azul => abre chat
     document.getElementById('chatFloat').addEventListener('click', abrirChatBotpress);
 
-    // 3) Ocultar botón flotante de Botpress (abajo derecha)
+    // Ocultar el botón flotante de Botpress (abajo derecha)
     (function ocultarFloatingBotpress(){
       const start = Date.now();
       const timer = setInterval(() => {
@@ -237,7 +235,6 @@
           // Shadow DOM (bp-web-widget)
           const w = document.querySelector('bp-web-widget');
           if (w && w.shadowRoot) {
-            // inyectar CSS dentro del shadow
             if (!w.shadowRoot.getElementById('hide-bpw-style')) {
               const st = document.createElement('style');
               st.id = 'hide-bpw-style';
@@ -248,7 +245,6 @@
               `;
               w.shadowRoot.appendChild(st);
             }
-            // por si ya existe el botón
             w.shadowRoot.querySelectorAll('.bpw-floating-button, .bpw-widget-btn, .bpw-fab')
               .forEach(el => el.style.display = 'none');
           }
