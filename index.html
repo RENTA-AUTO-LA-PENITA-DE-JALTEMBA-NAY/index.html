@@ -6,29 +6,9 @@
   <title>Renta Auto La Peñita de Jaltemba</title>
 
   <style>
-    body{
-      margin:0;
-      padding:0;
-      background-color:#eef5ff;
-      font-family: Arial, sans-serif;
-      text-align:center;
-    }
-
-    header{
-      padding:20px;
-      font-size:28px;
-      color:#003366;
-      font-weight:bold;
-      background-color:#fff;
-      line-height:1.2;
-    }
-
-    .subtitle{
-      margin-top:6px;
-      font-size:18px;
-      color:#555;
-      font-weight:normal;
-    }
+    body{ margin:0; padding:0; background:#eef5ff; font-family:Arial,sans-serif; text-align:center; }
+    header{ padding:20px; font-size:28px; color:#003366; font-weight:bold; background:#fff; line-height:1.2; }
+    .subtitle{ margin-top:6px; font-size:18px; color:#555; font-weight:normal; }
 
     .card{
       margin:50px auto 20px auto;
@@ -40,55 +20,19 @@
       max-width:600px;
       box-shadow:0 0 10px rgba(0,0,0,0.1);
     }
+    .card h2{ font-size:24px; color:#003399; margin:0 0 10px 0; }
+    .card p{ font-size:16px; color:#333; margin:6px 0; }
 
-    .card h2{
-      font-size:24px;
-      color:#003399;
-      margin:0 0 10px 0;
-    }
-
-    .card p{
-      font-size:16px;
-      color:#333;
-      margin:6px 0;
-    }
-
-    .cta{
-      max-width:600px;
-      margin:0 auto 26px auto;
-      padding:0 16px;
-      font-size:14px;
-      color:#333;
-    }
-
+    .cta{ max-width:600px; margin:0 auto 26px auto; padding:0 16px; font-size:14px; color:#333; }
     .cta a{
-      display:inline-block;
-      margin-top:10px;
-      padding:12px 16px;
-      border-radius:12px;
-      border:2px solid #0066ff;
-      text-decoration:none;
-      font-weight:bold;
-      color:#003399;
-      background:#fff;
+      display:inline-block; margin-top:10px; padding:12px 16px;
+      border-radius:12px; border:2px solid #0066ff; text-decoration:none;
+      font-weight:bold; color:#003399; background:#fff;
     }
-
     .cta a:hover{ background:#f2f6ff; }
 
-    .footer{
-      max-width:600px;
-      margin:0 auto 30px auto;
-      font-size:14px;
-      color:#444;
-      padding:0 16px;
-    }
-
-    .footer a{
-      color:#003399;
-      text-decoration:none;
-      font-weight:bold;
-    }
-
+    .footer{ max-width:600px; margin:0 auto 30px auto; font-size:14px; color:#444; padding:0 16px; }
+    .footer a{ color:#003399; text-decoration:none; font-weight:bold; }
     .footer a:hover{ text-decoration:underline; }
 
     .chat-center{
@@ -100,20 +44,11 @@
       gap:14px;
     }
 
-    @keyframes fadeIn{
-      from{ opacity:0; transform:translateY(20px); }
-      to{ opacity:1; transform:translateY(0); }
-    }
+    @keyframes fadeIn{ from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+    @keyframes pop{ 0%,100%{transform:scale(1);} 50%{transform:scale(1.06);} }
 
-    @keyframes pop{
-      0%,100%{ transform:scale(1); }
-      50%{ transform:scale(1.06); }
-    }
-
-    /* Barra azul */
     .chat-float{
-      position:relative;
-      background-color:#007bff;
+      background:#007bff;
       color:#fff;
       padding:12px 18px;
       border-radius:25px;
@@ -125,31 +60,29 @@
       animation:fadeIn 0.8s ease forwards, pop 1.6s ease-in-out infinite;
     }
 
-    /* ✅ Avatar amarillo (más grande y “llena” el cuadro) */
+    /* ✅ BOT AMARILLO GRANDE */
     .avatar-center{
       width:130px;
       height:130px;
       cursor:pointer;
       user-select:none;
       border-radius:22px;
-      animation: pop 2s ease-in-out infinite;
+      animation:pop 2s ease-in-out infinite;
       box-shadow:0 10px 20px rgba(0,0,0,0.18);
-      background: transparent;
-      object-fit: cover;   /* ← clave para que se vea grande aunque el PNG tenga margen */
+      object-fit:cover; /* si tu PNG tiene margen, esto lo “acerca” */
       display:block;
+      background:transparent;
     }
 
-    /* ✅ MÁSCARA: tapa el botón/launcher de Botpress abajo-derecha sí o sí */
+    /* (Opcional) máscara para tapar launcher abajo-derecha si Botpress insiste */
     #bpLauncherMask{
-      position: fixed;
-      right: 8px;
-      bottom: 8px;
-      width: 120px;
-      height: 120px;
-      background: #eef5ff;          /* mismo color del fondo */
-      border-radius: 26px;
-      z-index: 2147483647;          /* super arriba */
-      pointer-events: auto;         /* bloquea clicks al botón de abajo */
+      position:fixed;
+      right:8px; bottom:8px;
+      width:120px; height:120px;
+      background:#eef5ff;
+      border-radius:26px;
+      z-index:2147483647;
+      pointer-events:auto;
     }
   </style>
 </head>
@@ -163,7 +96,6 @@
 
   <div class="card">
     <div style="font-size:30px;margin-bottom:15px;">🚗 🚙 🚐</div>
-
     <h2>Recepcionista<br>Renta de Autos</h2>
     <p>Atención 24/7.</p>
     <p>Atención personalizada para tu reserva.</p>
@@ -175,7 +107,7 @@
         💬 Hola, estoy a tus órdenes... INFORMES, RESERVACIONES, REQUISITOS, PRECIOS 🧑‍💬
       </div>
 
-      <!-- ✅ Ruta RELATIVA (tu sitio vive en /index.html/) -->
+      <!-- ✅ ruta RELATIVA -->
       <img id="chatAvatarCenter" class="avatar-center"
            src="avatar-amarillo.png"
            alt="Iniciar chat"
@@ -187,7 +119,6 @@
     <div><strong>¿Ya decidiste contratar?</strong> Te atendemos en WhatsApp:</div>
     <a href="https://wa.me/523271023282?text=Hola%2C%20vengo%20del%20chatbot%20de%20Renta%20Auto%20La%20Pe%C3%B1ita.%20Ya%20deseo%20contratar%2Freservar.%20%C2%BFMe%20apoyas%3F"
        target="_blank" rel="noopener">✅ Contratar / Reservar por WhatsApp</a>
-
     <div style="margin-top:8px;color:#555;font-size:13px;">
       (Primero te atiende el chatbot. Cuando ya estés listo para contratar, aquí pasas con atención humana.)
     </div>
@@ -199,7 +130,7 @@
     <span>Al usar el chat, pueden emplearse cookies/almacenamiento local para operar el servicio.</span>
   </div>
 
-  <!-- ✅ máscara para tapar el botón de abajo derecha -->
+  <!-- (Opcional) si ya ocultaste el launcher con éxito, puedes borrar esta línea -->
   <div id="bpLauncherMask"></div>
 
   <!-- Botpress -->
@@ -213,66 +144,71 @@
       if (bubble) bubble.style.display = 'block';
     }, 800);
 
-    // Compat con nombres distintos
-    function bpObj(){ return window.botpressWebChat || window.botpressWebchat || null; }
+    function abrirChatBotpress() {
+      const start = Date.now();
 
-    function trySend(evt){
-      const w = bpObj();
-      if (!w || typeof w.sendEvent !== 'function') return false;
-      try { w.sendEvent(evt); return true; } catch(e) { return false; }
+      const intentarAbrir = () => {
+        // ✅ API oficial v3: window.botpress.open/toggle
+        if (window.botpress && typeof window.botpress.open === 'function') {
+          window.botpress.open();
+          // al abrir, podemos ocultar la máscara para no tapar el chat
+          const m = document.getElementById('bpLauncherMask');
+          if (m) m.style.display = 'none';
+          return true;
+        }
+        if (window.botpress && typeof window.botpress.toggle === 'function') {
+          window.botpress.toggle();
+          const m = document.getElementById('bpLauncherMask');
+          if (m) m.style.display = 'none';
+          return true;
+        }
+
+        // Fallback (versiones anteriores)
+        if (window.botpressWebChat && typeof window.botpressWebChat.sendEvent === 'function') {
+          window.botpressWebChat.sendEvent({ type: 'toggle' });
+          const m = document.getElementById('bpLauncherMask');
+          if (m) m.style.display = 'none';
+          return true;
+        }
+        return false;
+      };
+
+      if (intentarAbrir()) return;
+
+      // Reintentar unos segundos por si el script aún no carga
+      const t = setInterval(() => {
+        if (intentarAbrir() || (Date.now() - start > 12000)) clearInterval(t);
+      }, 250);
     }
 
-    function abrirChatBotpress(){
-      // Intenta abrir por evento (mejor)
-      if (trySend({ type:'show' })) return;
-      if (trySend({ type:'toggle' })) return;
-      if (trySend({ type:'open' })) return;
-
-      // Fallback: intenta clickear el launcher si existe
-      const launcher =
-        document.querySelector('.bpw-floating-button, .bpw-widget-btn, .bpw-fab, #bpw-widget-btn') ||
-        (document.querySelector('bp-web-widget')?.shadowRoot?.querySelector('button')) ||
-        null;
-
-      if (launcher) launcher.click();
-    }
-
-    // ✅ Abrir chat tocando el amarillo
+    // ✅ Click en bot amarillo => abre chat
     document.getElementById('chatAvatarCenter').addEventListener('click', abrirChatBotpress);
 
-    // (Opcional) también tocando la burbuja azul
+    // (Opcional) click en barra azul => abre chat
     document.getElementById('chatFloat').addEventListener('click', abrirChatBotpress);
 
-    // Intento adicional de ocultar launcher (por si se puede)
-    (function intentarOcultarLauncher(){
+    // Intento adicional para esconder el launcher si Botpress lo vuelve a poner
+    (function ocultarLauncher(){
       const start = Date.now();
       const t = setInterval(() => {
-        try {
-          // DOM normal
+        try{
           document.querySelectorAll('.bpw-floating-button, .bpw-widget-btn, .bpw-fab, #bpw-widget-btn')
-            .forEach(el => {
-              el.style.opacity='0';
-              el.style.pointerEvents='none';
-              el.style.transform='scale(0.01)';
-            });
+            .forEach(el => { el.style.opacity='0'; el.style.pointerEvents='none'; el.style.transform='scale(0.01)'; });
 
-          // Shadow DOM
           const w = document.querySelector('bp-web-widget');
-          if (w && w.shadowRoot) {
-            if (!w.shadowRoot.getElementById('hide-launcher-style')) {
-              const st = document.createElement('style');
-              st.id = 'hide-launcher-style';
-              st.textContent = `
-                .bpw-floating-button, .bpw-widget-btn, .bpw-fab, #bpw-widget-btn{
-                  opacity:0 !important;
-                  pointer-events:none !important;
-                  transform:scale(0.01) !important;
-                }
-              `;
-              w.shadowRoot.appendChild(st);
-            }
+          if (w && w.shadowRoot && !w.shadowRoot.getElementById('hide-launcher-style')) {
+            const st = document.createElement('style');
+            st.id = 'hide-launcher-style';
+            st.textContent = `
+              .bpw-floating-button, .bpw-widget-btn, .bpw-fab, #bpw-widget-btn{
+                opacity:0 !important;
+                pointer-events:none !important;
+                transform:scale(0.01) !important;
+              }
+            `;
+            w.shadowRoot.appendChild(st);
           }
-        } catch(e){}
+        }catch(e){}
         if (Date.now() - start > 12000) clearInterval(t);
       }, 300);
     })();
